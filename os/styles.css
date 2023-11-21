@@ -1,0 +1,71 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+}
+
+#desktop {
+  background: url("desktop-background.jpg") no-repeat center center fixed;
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#taskbar {
+  background: #1a1a1a;
+  color: white;
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+  user-select: none; /* Evitar la selección de texto en la barra de tareas */
+}
+
+.icon {
+  cursor: pointer;
+  padding: 5px;
+  background: #2f2f2f;
+  color: white;
+  border: 1px solid #1a1a1a;
+  border-radius: 5px;
+  margin-right: 5px;
+}
+
+#desktop-icons {
+  margin: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.window {
+  border: 1px solid #1a1a1a;
+  background: white;
+  position: absolute;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  user-select: none; /* Evitar la selección de texto en las ventanas */
+}
+
+/* Estilo para el menú de inicio */
+.start-menu {
+  display: none;
+  position: absolute;
+  top: 30px;
+  left: 10px;
+  background: #1a1a1a;
+  padding: 10px;
+  border: 1px solid #2f2f2f;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.start-menu-item {
+  padding: 5px;
+  color: white;
+  cursor: pointer;
+}
+
+.start-menu-item:hover {
+  background: #2f2f2f;
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Escritorio Virtual</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div id="desktop">
+    <!-- Barra de tareas -->
+    <div id="taskbar">
+      <div class="start-btn icon" onclick="toggleStartMenu()">Inicio</div>
+      <div id="start-menu" class="start-menu">
+        <!-- Contenido del menú de inicio -->
+        <div class="start-menu-item">Calculadora</div>
+        <div class="start-menu-item">Bloc de notas</div>
+      </div>
+    </div>
+
+    <!-- Iconos en el escritorio -->
+    <div id="desktop-icons">
+      <div class="icon" onclick="openWindow('calculator')">Calculadora</div>
+      <div class="icon" onclick="openWindow('notepad')">Bloc de notas</div>
+    </div>
+
+    <!-- Ventanas -->
+    <div id="windows-container"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

@@ -183,6 +183,7 @@ body {
   font-family: "JetBrains Mono", monospace;
   color: white;
   margin-left: 5px;
+  height: auto;
 }
 
 #terminalInput input {
@@ -193,6 +194,6 @@ body {
   outline: none;
   caret-color: teal;
   width: 100%;
-  margin: 0; /* Asegúrate de que no haya margen */
-  padding: 0; /* Asegúrate de que no haya relleno */
+  margin: 0;
+  padding: 0;
 }

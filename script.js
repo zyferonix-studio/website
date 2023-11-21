@@ -37,7 +37,6 @@ const scrollSpeed = 1000;
 function displayEntries() {
   let i = 0;
   const intervalId = setInterval(() => {
-    console.log(entries[i]);
     window.scrollTo(0, document.body.scrollHeight);
     i++;
     if (i === entries.length) {
@@ -48,6 +47,14 @@ function displayEntries() {
 
 window.onload = displayEntries;
 
+function adjustInputWidth() {
+  const terminalInput = document.getElementById("terminalInput");
+  const input = terminalInput.querySelector("input");
+
+  const desiredWidth = window.innerWidth * 0.9;
+  input.style.width = `${desiredWidth}px`;
+}
+
 function renderTerminal(terminalcontainer) {
   const terminalContent = document.createElement("tempterminal1");
   terminalContent.innerHTML = `
@@ -55,12 +62,13 @@ function renderTerminal(terminalcontainer) {
   <div id="terminalLine">
     <p>root@<span style="color: teal">ZyFeronixOS</span>:~$</p>
     <div id="terminalInput">
-      <input type="text">
+      <input type="text" style="width: 100%;">
     </div>
   </div>
 </div>
         `;
   terminalcontainer.appendChild(terminalContent);
+  adjustInputWidth();
 }
 
 function terminal() {
