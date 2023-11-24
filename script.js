@@ -71,6 +71,17 @@ function renderTerminal(terminalcontainer) {
   adjustInputWidth();
 }
 
+function renderWelcome() {
+  const welcomeContent = document.createElement("tempwelcome1");
+  welcomeContent.innerHTML = `
+  <div id="welcome">
+  <div id="welcomeLine">
+    <p>Bienvenido a <span style="color: teal">ZyFeronixOS</span>!</p>
+  </div>
+</div>
+        `;
+}
+
 function terminal() {
   var terminalcontainer = document.getElementById("terminalcontent");
   //renderWelcome();
