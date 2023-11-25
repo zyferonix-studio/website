@@ -85,6 +85,7 @@ function renderWelcome() {
 function terminal() {
   var terminalcontainer = document.getElementById("terminalcontent");
   //renderWelcome();
+  //renderHelp();
 
   setTimeout(() => {
     renderTerminal(terminalcontainer);
