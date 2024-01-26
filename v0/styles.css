@@ -1,0 +1,99 @@
+body {
+    font-family: 'JetBrains Mono', monospace;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.header {
+    background-color: #3498db;
+    color: white;
+    text-align: center;
+    padding: 100px 0;
+}
+
+.header-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 36px;
+}
+
+.header p {
+    font-size: 18px;
+}
+
+.about {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: justify;
+}
+
+.skills,
+.projects,
+.contact {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.skills h2,
+.projects h2,
+.contact h2 {
+    color: #333;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.skill,
+.project {
+    text-align: center;
+    padding: 15px;
+    background-color: #ecf0f1;
+    border-radius: 8px;
+}
+
+.skill i,
+.project i {
+    font-size: 48px;
+    color: #3498db;
+}
+
+.skill p,
+.project p {
+    margin-top: 10px;
+}
+
+.contact ul {
+    list-style: none;
+    padding: 0;
+}
+
+.contact li {
+    margin-bottom: 10px;
+}
+
+.contact a {
+    text-decoration: none;
+    color: #3498db;
+    font-weight: bold;
+}
+
+.contact a:hover {
+    text-decoration: underline;
+}
