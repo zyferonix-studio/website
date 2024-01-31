@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" />
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      font-family: "Poppins", sans-serif;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    #stars {
+      background: linear-gradient(to bottom, #001f3f, #003366, #00509e);
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: #fff;
+      border-radius: 50%;
+      opacity: 0;
+      transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+    }
+
+    .custom-text {
+      position: absolute;
+      font-size: 5em;
+      font-weight: bold;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    #opening-text {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    #countdown,
+    #vit2bit-text {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  </style>
+  <title>Just wait...</title>
+</head>
+
+<body>
+  <div id="stars"></div>
+  <div id="opening-text" class="custom-text">LA GRAN APERTURA</div>
+  <div id="vit2bit-text" class="custom-text">ViT2BiT Social</div>
+  <div id="countdown" class="custom-text"></div>
+  <script>
+    function createStars() {
+      const starsContainer = document.getElementById("stars");
+      const openingText = document.getElementById("opening-text");
+      const vit2bitText = document.getElementById("vit2bit-text");
+      const countdownElement = document.getElementById("countdown");
+
+      function createStar() {
+        const star = document.createElement("div");
+        star.className = "star";
+        star.style.left = `${Math.random() * 100}%`;
+        star.style.top = `${Math.random() * 100}%`;
+        const randomSize = Math.random() * (4 - 2) + 2;
+        star.style.width = `${randomSize}px`;
+        star.style.height = `${randomSize}px`;
+        starsContainer.appendChild(star);
+
+        setTimeout(() => {
+          star.style.opacity = 1;
+          star.style.transform = "scale(1)";
+          setTimeout(() => {
+            star.style.opacity = 0;
+            star.style.transform = "scale(0)";
+            setTimeout(() => {
+              starsContainer.removeChild(star);
+              createStar();
+            }, Math.random() * 2800 + 1200);
+          }, 4000);
+        }, Math.random() * 2800 + 200);
+      }
+
+      for (let i = 0; i < 200; i++) {
+        createStar();
+      }
+
+      function startAnimationCycle() {
+        openingText.style.opacity = 1;
+        setTimeout(() => {
+          openingText.style.opacity = 0;
+          setTimeout(() => {
+            vit2bitText.style.opacity = 1;
+            setTimeout(() => {
+              vit2bitText.style.opacity = 0;
+              setTimeout(() => {
+                countdownElement.style.opacity = 1;
+                setTimeout(() => {
+                  countdownElement.style.opacity = 0;
+                  setTimeout(() => {
+                    startAnimationCycle();
+                  }, 1000);
+                }, 4000);
+              }, 1000);
+            }, 4000);
+          }, 1000);
+        }, 4000);
+      }
+
+      setTimeout(() => {
+        startAnimationCycle();
+      }, 1000);
+
+      const targetDate = new Date(1707584400000);
+
+      function updateCountdown() {
+        const currentDate = new Date();
+        const timeDifference = targetDate - currentDate;
+
+        if (timeDifference > 0) {
+          const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+          const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+          const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+          countdownElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+        } else {
+          countdownElement.innerHTML = " ";
+        }
+      }
+
+      setInterval(updateCountdown, 1000);
+      updateCountdown();
+    }
+
+    window.addEventListener("load", createStars);
+  </script>
+</body>
+
+</html>
