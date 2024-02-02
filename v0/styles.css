@@ -4,19 +4,27 @@ body {
   padding: 0;
   background-color: #f4f4f4;
   color: #333;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+body::-webkit-scrollbar {
+  width: 0px;
 }
 
 .header {
   background-color: #3498db;
   color: white;
   text-align: center;
-  padding: 100px 0;
+  padding: 60px 0;
 }
 
 .header-content {
   max-width: 800px;
   margin: 0 auto;
   padding: 40px;
+  position: relative;
 }
 
 .header h1 {
@@ -38,10 +46,41 @@ body {
   text-align: justify;
 }
 
+.intro {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f8f8f8;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: justify;
+  color: #000000;
+}
+
+.intro h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.intro p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.intro a {
+  text-decoration: none;
+  color: #3498db;
+}
+
+.intro a:hover {
+  text-decoration: underline;
+}
+
 .about p {
   padding: 20px;
 }
 
+.about,
 .skills,
 .projects,
 .contact {
@@ -53,10 +92,30 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
 .skills h2,
 .projects h2,
 .contact h2 {
   color: #333;
+}
+
+.skills {
+  max-width: 800px;
+  margin: 20px auto;
+  width: 100%;
+  border: none;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.skills > * {
+  max-width: 100%;
 }
 
 .grid-container {
@@ -103,11 +162,77 @@ body {
   text-decoration: underline;
 }
 
+.about p {
+  padding: 5px;
+}
+
+.footer {
+  background-color: lightgray;
+  color: black;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.footer-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.footer h1 {
+  margin: 0;
+  font-size: 36px;
+}
+
+.footer p {
+  font-size: 18px;
+}
+
+.level {
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.low {
+  color: #e74c3c;
+}
+
+.low-medium {
+  color: #d35400;
+}
+
+.medium {
+  color: #d1be13;
+}
+
+.medium-high {
+  color: #90cf13;
+}
+
+.high {
+  color: #2ecc71;
+}
+
+body {
+  flex-grow: 1;
+}
+
+.container {
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container .intro {
+  margin-top: 20px;
+}
+
 @media (max-width: 767px) {
   .about,
   .skills,
   .projects,
   .contact {
-    margin: 20px 15px 20px 15px;
+    margin: 20px 15px;
   }
 }

@@ -55,6 +55,20 @@
       top: 50%;
       transform: translateY(-50%);
     }
+
+    #copy {
+      position: absolute;
+      bottom: 0;
+      left: 10px;
+      margin: 5px;
+      padding: 10px;
+    }
+
+    @media (max-width: 767px) {
+      .custom-text {
+        font-size: 2em;
+      }
+    }
   </style>
   <title>Just wait...</title>
 </head>
@@ -62,8 +76,9 @@
 <body>
   <div id="stars"></div>
   <div id="opening-text" class="custom-text">LA GRAN APERTURA</div>
-  <div id="vit2bit-text" class="custom-text">ViT2BiT Social</div>
+  <div id="vit2bit-text" class="custom-text">ViT2BiT</div>
   <div id="countdown" class="custom-text"></div>
+  <p id="copy">2024 © ZyFeronix Studio</p>
   <script>
     function createStars() {
       const starsContainer = document.getElementById("stars");
