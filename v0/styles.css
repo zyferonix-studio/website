@@ -10,21 +10,26 @@ body {
 }
 
 body::-webkit-scrollbar {
-  width: 0px;
+  width: 0;
 }
 
 .header {
   background-color: #3498db;
   color: white;
   text-align: center;
-  padding: 60px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
 }
 
 .header-content {
-  max-width: 800px;
-  margin: 0 auto;
+  opacity: 0;
+  transition: opacity 0.8s ease-in;
+  max-width: 100%;
   padding: 40px;
-  position: relative;
 }
 
 .header h1 {
@@ -36,25 +41,32 @@ body::-webkit-scrollbar {
   font-size: 18px;
 }
 
-.about {
-  max-width: 800px;
-  margin: 20px auto;
+.container {
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container .intro {
+  margin-top: 20px;
+}
+
+.about,
+.skills,
+.projects,
+.footer,
+.intro {
+  margin: 20px;
   padding: 20px;
-  background-color: white;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  text-align: justify;
 }
 
 .intro {
-  max-width: 800px;
-  margin: 20px auto;
-  padding: 20px;
-  background-color: #f8f8f8;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  text-align: justify;
+  background-color: #ffffff;
   color: #000000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .intro h2 {
@@ -76,52 +88,34 @@ body::-webkit-scrollbar {
   text-decoration: underline;
 }
 
+.about {
+  background-color: white;
+}
+
 .about p {
   padding: 20px;
 }
 
-.about,
-.skills,
-.projects,
-.contact {
-  max-width: 800px;
-  margin: 20px auto;
-  padding: 20px;
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
 .grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.grid-container-2 {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
 }
 
-.skills h2,
-.projects h2,
-.contact h2 {
-  color: #333;
-}
-
-.skills {
-  max-width: 800px;
-  margin: 20px auto;
-  width: 100%;
-  border: none;
+.skills,
+.projects,
+.footer {
   background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.skills > * {
+.skills > *,
+.project {
   max-width: 100%;
-}
-
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
 }
 
 .skill,
@@ -143,49 +137,8 @@ body::-webkit-scrollbar {
   margin-top: 10px;
 }
 
-.contact ul {
-  list-style: none;
-  padding: 0;
-}
-
-.contact li {
-  margin-bottom: 10px;
-}
-
-.contact a {
-  text-decoration: none;
-  color: #3498db;
-  font-weight: bold;
-}
-
-.contact a:hover {
-  text-decoration: underline;
-}
-
 .about p {
   padding: 5px;
-}
-
-.footer {
-  background-color: lightgray;
-  color: black;
-  text-align: center;
-  padding: 10px 0;
-}
-
-.footer-content {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-.footer h1 {
-  margin: 0;
-  font-size: 36px;
-}
-
-.footer p {
-  font-size: 18px;
 }
 
 .level {
@@ -217,22 +170,26 @@ body {
   flex-grow: 1;
 }
 
-.container {
-  margin-top: 60px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.container .intro {
-  margin-top: 20px;
+.copy {
+  text-align: center;
+  font-size: 1.2em;
+  color: #000000;
 }
 
 @media (max-width: 767px) {
-  .about,
-  .skills,
-  .projects,
-  .contact {
-    margin: 20px 15px;
+  .grid-container,
+  .grid-container-2 {
+    grid-template-columns: repeat(1, 1fr);
   }
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
