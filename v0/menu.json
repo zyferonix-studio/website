@@ -1,0 +1,18 @@
+{
+  "index": {
+    "title": "Inicio",
+    "url": "/"
+  },
+  "team": {
+    "title": "El equipo",
+    "url": "/team"
+  },
+  "reviews": {
+    "title": "Opiniones",
+    "url": "/reviews"
+  },
+  "contact": {
+    "title": "Contacto",
+    "url": "/contact"
+  }
+}

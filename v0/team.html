@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" id="modeCSS" type="text/css" href="./assets/css/styles.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+  <title>ZyFeronix Studio</title>
+  <script>
+    fetch('/menu.json')
+      .then(response => response.json())
+      .then(menu => {
+        const menuItems = Object.entries(menu);
+        const menuDropdown = document.querySelector('.menu-dropdown');
+        const removeHtmlExtension = url => url.replace('.html', '');
+
+        menuItems.forEach(([key, value]) => {
+          const menuItem = document.createElement('a');
+          menuItem.href = value.url;
+          menuItem.textContent = value.title;
+          menuDropdown.appendChild(menuItem);
+
+          const currentUrlWithoutExtension = removeHtmlExtension(window.location.pathname);
+          if (currentUrlWithoutExtension === removeHtmlExtension(value.url)) {
+            menuItem.classList.add('active');
+          }
+        });
+      })
+      .catch(error => {
+        console.error('Error al cargar el menú:', error);
+      });
+  </script>
+</head>
+
+<body>
+  <header class="header">
+    <div class="header-content">
+      <div class="modeSwitch">
+        <label class="switch">
+          <span class="sun"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <g fill="#ffd43b">
+                <circle r="5" cy="12" cx="12"></circle>
+                <path d="m21 13h-1a1 1 0 0 1 0-2h1a1 1 0 0 1 0 2zm-17 0h-1a1 1 0 0 1 0-2h1a1 1 0 0 1 0 2zm13.66-5.66a1 1 0 0 1 -.66-.29 1 1 0 0 1 0-1.41l.71-.71a1 1 0 1 1 1.41 1.41l-.71.71a1 1 0 0 1 -.75.29zm-12.02 12.02a1 1 0 0 1 -.71-.29 1 1 0 0 1 0-1.41l.71-.66a1 1 0 0 1 1.41 1.41l-.71.71a1 1 0 0 1 -.7.24zm6.36-14.36a1 1 0 0 1 -1-1v-1a1 1 0 0 1 2 0v1a1 1 0 0 1 -1 1zm0 17a1 1 0 0 1 -1-1v-1a1 1 0 0 1 2 0v1a1 1 0 0 1 -1 1zm-5.66-14.66a1 1 0 0 1 -.7-.29l-.71-.71a1 1 0 0 1 1.41-1.41l.71.71a1 1 0 0 1 0 1.41 1 1 0 0 1 -.71.29zm12.02 12.02a1 1 0 0 1 -.7-.29l-.66-.71a1 1 0 0 1 1.36-1.36l.71.71a1 1 0 0 1 0 1.41 1 1 0 0 1 -.71.24z"></path>
+              </g>
+            </svg></span>
+          <span class="moon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+              <path d="m223.5 32c-123.5 0-223.5 100.3-223.5 224s100 224 223.5 224c60.6 0 115.5-24.2 155.8-63.4 5-4.9 6.3-12.5 3.1-18.7s-10.1-9.7-17-8.5c-9.8 1.7-19.8 2.6-30.1 2.6-96.9 0-175.5-78.8-175.5-176 0-65.8 36-123.1 89.3-153.3 6.1-3.5 9.2-10.5 7.7-17.3s-7.3-11.9-14.3-12.5c-6.3-.5-12.6-.8-19-.8z"></path>
+            </svg></span>
+          <input type="checkbox" class="input">
+          <span class="slider"></span>
+        </label>
+      </div>
+      <button class="menu-btn">&#9776;</button>
+      <div class="menu-dropdown">
+      </div>
+      <h1>ZyFeronix Studio</h1>
+      <p>Donde la única limitación es nuestra imaginación y el café nuestro motor!</p>
+      <div class="scroll-arrow" data-scroll-to="about">
+        <span class="arrow-text">Equipo</span>
+        <span class="arrow">&#8595;</span>
+      </div>
+    </div>
+  </header>
+  <section class="about fade-in" id="about">
+    <h2>Nuestro equipo</h2>
+    <p>En la actualidad, conformamos un equipo increíblemente reducido, compuesto <span id="glow-text">únicamente por dos personas</span>. Sin embargo, esta limitación en número no se traduce en una disminución de nuestro compromiso y dedicación hacia nuestros proyectos.</p>
+    <p>Es posible que te preguntes por qué no ampliamos nuestro equipo, y la respuesta es bastante sencilla: <span id="subrayado">mantenemos estándares de calidad extraordinariamente elevados</span>, lo que limita la cantidad de personas dispuestas a comprometerse con nuestro nivel de excelencia. Además, es importante destacar que nuestro trabajo se rige por una pasión genuina, sin generar ingresos económicos directos.</p>
+    <p>Este compromiso con la calidad y la pasión por lo que hacemos se refleja en el tiempo que dedicamos a cada proyecto. Desde la concepción inicial hasta el lanzamiento final, invertimos un considerable esfuerzo en cada etapa del proceso. Nos tomamos el tiempo necesario para pensar, planificar y programar meticulosamente, con el objetivo de ofrecer productos finales que superen cualquier expectativa. Además, <span id="subrayado">priorizamos la retroalimentación de los usuarios mediante exhaustivas pruebas beta cerradas</span>, lo que nos permite perfeccionar nuestras creaciones y adaptarlas a las necesidades y opiniones de nuestra audiencia.</p>
+    <p>En resumen, aunque nuestro equipo sea pequeño en número, nuestra dedicación y compromiso son enormes. Nos esforzamos por mantenernos fieles a nuestros estándares de calidad y por ofrecer experiencias excepcionales a nuestros usuarios finales.</p>
+  </section>
+  <section class="team fade-in" id="team">
+    <h2>Miembros del equipo</h2>
+    <div class="grid-container-2">
+      <article class="team-member">
+        <div class="member-pfp">
+          <img src="./assets/img/alex1.png">
+          <img id="hover-img" src="./assets/img/alex2.png">
+        </div>
+        <h3>AlexDevUwU</h3>
+        <p>Un loco con grandes expectativas al que le encanta hacer todo perfecto, con poca creatividad pero con ganas de hacer cosas grandes, con unos estándares de calidad muy altos.</p>
+        <div class="grid-container-3 member-socials centered-grid">
+          <a target="_blank" href="https://twitter.com/alexdevuwu"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <title>Twitter</title>
+              <path d="M21.543 7.104c.015.211.015.423.015.636 0 6.507-4.954 14.01-14.01 14.01v-.003A13.94 13.94 0 0 1 0 19.539a9.88 9.88 0 0 0 7.287-2.041 4.93 4.93 0 0 1-4.6-3.42 4.916 4.916 0 0 0 2.223-.084A4.926 4.926 0 0 1 .96 9.167v-.062a4.887 4.887 0 0 0 2.235.616A4.928 4.928 0 0 1 1.67 3.148 13.98 13.98 0 0 0 11.82 8.292a4.929 4.929 0 0 1 8.39-4.49 9.868 9.868 0 0 0 3.128-1.196 4.941 4.941 0 0 1-2.165 2.724A9.828 9.828 0 0 0 24 4.555a10.019 10.019 0 0 1-2.457 2.549z" />
+            </svg></a>
+          <a target="_blank" href="https://github.com/alexdeveloperuwu"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <title>GitHub</title>
+              <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+            </svg></a>
+          <a target="_blank" href="https://vit2bit.live/alexdevuwu"><img src="./assets/img/v2b.svg" alt="Vit2Bit"></a>
+          <a target="_blank" href="https://twitch.tv/alexdevuwu"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <title>Twitch</title>
+              <path d="M11.571 4.714h1.715v5.143H11.57zm4.715 0H18v5.143h-1.714zM6 0L1.714 4.286v15.428h5.143V24l4.286-4.286h3.428L22.286 12V0zm14.571 11.143l-3.428 3.428h-3.429l-3 3v-3H6.857V1.714h13.714Z" />
+            </svg></a>
+          <a target="_blank" href="mailto:alex@alexdevuwu.com"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <title>Mail.Ru</title>
+              <path d="M15.61 12c0 1.99-1.62 3.61-3.61 3.61-1.99 0-3.61-1.62-3.61-3.61 0-1.99 1.62-3.61 3.61-3.61 1.99 0 3.61 1.62 3.61 3.61M12 0C5.383 0 0 5.383 0 12s5.383 12 12 12c2.424 0 4.761-.722 6.76-2.087l.034-.024-1.617-1.879-.027.017A9.494 9.494 0 0 1 12 21.54c-5.26 0-9.54-4.28-9.54-9.54 0-5.26 4.28-9.54 9.54-9.54 5.26 0 9.54 4.28 9.54 9.54a9.63 9.63 0 0 1-.225 2.05c-.301 1.239-1.169 1.618-1.82 1.568-.654-.053-1.42-.52-1.426-1.661V12A6.076 6.076 0 0 0 12 5.93 6.076 6.076 0 0 0 5.93 12 6.076 6.076 0 0 0 12 18.07a6.02 6.02 0 0 0 4.3-1.792 3.9 3.9 0 0 0 3.32 1.805c.874 0 1.74-.292 2.437-.821.719-.547 1.256-1.336 1.553-2.285.047-.154.135-.504.135-.507l.002-.013c.175-.76.253-1.52.253-2.457 0-6.617-5.383-12-12-12" />
+            </svg></a>
+        </div>
+      </article>
+      <article class="team-member">
+        <div class="member-pfp">
+          <img src="./assets/img/arashi1.png">
+          <img id="hover-img" src="./assets/img/arashi2.png">
+        </div>
+        <h3>Arashi Gekko</h3>
+        <p>Otro loco más, con más creatividad que Alex y también con muchas ganas de crear cosas grandes, excepcionales y perfectas. Además, siempre trata de mantener los estándares de calidad tan altos que tenemos</p>
+        <div class="grid-container-3 member-socials centered-grid">
+          <a target="_blank" href="https://twitter.com/geckoarashi"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <title>Twitter</title>
+              <path d="M21.543 7.104c.015.211.015.423.015.636 0 6.507-4.954 14.01-14.01 14.01v-.003A13.94 13.94 0 0 1 0 19.539a9.88 9.88 0 0 0 7.287-2.041 4.93 4.93 0 0 1-4.6-3.42 4.916 4.916 0 0 0 2.223-.084A4.926 4.926 0 0 1 .96 9.167v-.062a4.887 4.887 0 0 0 2.235.616A4.928 4.928 0 0 1 1.67 3.148 13.98 13.98 0 0 0 11.82 8.292a4.929 4.929 0 0 1 8.39-4.49 9.868 9.868 0 0 0 3.128-1.196 4.941 4.941 0 0 1-2.165 2.724A9.828 9.828 0 0 0 24 4.555a10.019 10.019 0 0 1-2.457 2.549z" />
+            </svg></a>
+          <a target="_blank" href="https://github.com/arashig"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <title>GitHub</title>
+              <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+            </svg></a>
+          <a target="_blank" href="https://vit2bit.live/arashigeeko"><img src="./assets/img/v2b.svg" alt="Vit2Bit"></a>
+          <a target="_blank" href="https://twitch.tv/arashigekko"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <title>Twitch</title>
+              <path d="M11.571 4.714h1.715v5.143H11.57zm4.715 0H18v5.143h-1.714zM6 0L1.714 4.286v15.428h5.143V24l4.286-4.286h3.428L22.286 12V0zm14.571 11.143l-3.428 3.428h-3.429l-3 3v-3H6.857V1.714h13.714Z" />
+            </svg></a>
+          <a target="_blank" href="mailto:contacto@vit2bit.live"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <title>Mail.Ru</title>
+              <path d="M15.61 12c0 1.99-1.62 3.61-3.61 3.61-1.99 0-3.61-1.62-3.61-3.61 0-1.99 1.62-3.61 3.61-3.61 1.99 0 3.61 1.62 3.61 3.61M12 0C5.383 0 0 5.383 0 12s5.383 12 12 12c2.424 0 4.761-.722 6.76-2.087l.034-.024-1.617-1.879-.027.017A9.494 9.494 0 0 1 12 21.54c-5.26 0-9.54-4.28-9.54-9.54 0-5.26 4.28-9.54 9.54-9.54 5.26 0 9.54 4.28 9.54 9.54a9.63 9.63 0 0 1-.225 2.05c-.301 1.239-1.169 1.618-1.82 1.568-.654-.053-1.42-.52-1.426-1.661V12A6.076 6.076 0 0 0 12 5.93 6.076 6.076 0 0 0 5.93 12 6.076 6.076 0 0 0 12 18.07a6.02 6.02 0 0 0 4.3-1.792 3.9 3.9 0 0 0 3.32 1.805c.874 0 1.74-.292 2.437-.821.719-.547 1.256-1.336 1.553-2.285.047-.154.135-.504.135-.507l.002-.013c.175-.76.253-1.52.253-2.457 0-6.617-5.383-12-12-12" />
+            </svg></a>
+        </div>
+      </article>
+    </div>
+  </section>
+  <section class="footer fade-in">
+    <br>
+    <div class="elevator">
+      <svg class="sweet-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve" height="100px" width="100px">
+        <path d="M70,47.5H30c-1.4,0-2.5,1.1-2.5,2.5v40c0,1.4,1.1,2.5,2.5,2.5h40c1.4,0,2.5-1.1,2.5-2.5V50C72.5,48.6,71.4,47.5,70,47.5z   M47.5,87.5h-5v-25h5V87.5z M57.5,87.5h-5v-25h5V87.5z M67.5,87.5h-5V60c0-1.4-1.1-2.5-2.5-2.5H40c-1.4,0-2.5,1.1-2.5,2.5v27.5h-5  v-35h35V87.5z" />
+        <path d="M50,42.5c1.4,0,2.5-1.1,2.5-2.5V16l5.7,5.7c0.5,0.5,1.1,0.7,1.8,0.7s1.3-0.2,1.8-0.7c1-1,1-2.6,0-3.5l-10-10  c-1-1-2.6-1-3.5,0l-10,10c-1,1-1,2.6,0,3.5c1,1,2.6,1,3.5,0l5.7-5.7v24C47.5,41.4,48.6,42.5,50,42.5z" />
+      </svg>
+    </div>
+    <h3 class="copy">2024 © ZyFeronix Studio</h3>
+  </section>
+  <script src="/assets/js/scripts.js"></script>
+  <script src="/assets/js/jquery-3.7.1.min.js"></script>
+  <script src="/assets/js/elevator.js"></script>
+  <script>
+    var elementButton = document.querySelector('.elevator');
+    var elevator = new Elevator({
+      element: elementButton,
+      mainAudio: './assets/audio/elevator.mp3',
+      endAudio: './assets/audio/ding.mp3'
+    });
+  </script>
+</body>
+
+</html>
