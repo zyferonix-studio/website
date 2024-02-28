@@ -5,14 +5,14 @@
   },
   "team": {
     "title": "El equipo",
-    "url": "/team"
+    "url": "/team.html"
   },
   "reviews": {
     "title": "Opiniones",
-    "url": "/reviews"
+    "url": "/reviews.html"
   },
   "contact": {
     "title": "Contacto",
-    "url": "/contact"
+    "url": "/contact.html"
   }
 }
